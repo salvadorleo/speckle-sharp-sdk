@@ -82,7 +82,7 @@ public sealed class ParquetTableWriter : IDisposable
     {
       _stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
       _writer = ParquetWriter.CreateAsync(schema, _stream).GetAwaiter().GetResult();
-      _writer.CompressionMethod = CompressionMethod.Zstd;
+      _writer.CompressionMethod = ParquetCompression.Method;
     });
   }
 
